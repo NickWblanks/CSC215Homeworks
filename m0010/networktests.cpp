@@ -68,5 +68,5 @@ TEST_CASE("compressOctets - testing classE ip address")
     octet oct4 = 84;
     ip ipaddress = compressOctets(oct1, oct2, oct3, oct4);
     REQUIRE(ipaddress == 4218372692);
-
 }
+
