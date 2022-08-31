@@ -14,3 +14,15 @@ ip compressOctets(octet oct1, octet oct2, octet oct3, octet oct4)
 
     return add;
 }
+
+void extractOctets(ip address, octet& oct1, octet& oct2, octet& oct3, octet& oct4)
+{
+
+}
+
+
+networkType getNetworkType(ip address)
+{
+    return INVALID;
+}
+
