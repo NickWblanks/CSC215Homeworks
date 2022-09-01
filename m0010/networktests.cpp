@@ -142,7 +142,6 @@ TEST_CASE("extractOctets - extracting class c address")
 
 
 
-
 TEST_CASE("extractOctets - extracting class d address")
 {
     ip address = 3833006883;
@@ -172,6 +171,27 @@ TEST_CASE("extractOctets - extracting class E address")
     CHECK(oct2 == 111);
     CHECK(oct3 == 66);
     CHECK(oct4 == 84);
+}
+
+
+//getNetworkType ------------------------------------------------------------------
+
+TEST_CASE("getNetworkTYpe - testing basic class A network")
+{
+    ip address = 2102267168;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSA);
+}
+
+
+
+TEST_CASE("getNetworkTYpe - testing APRIVATE network")
+{
+    ip address = 168514093;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == APRIVATE);
 }
 
 
