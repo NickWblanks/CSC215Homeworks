@@ -2,6 +2,9 @@
 #include "network.h"
 
 
+
+//compressOctets -----------------------------------------------------------
+
 TEST_CASE("compressOctets - testing classb ip adress")
 {
     octet oct1 = 151;
@@ -70,3 +73,36 @@ TEST_CASE("compressOctets - testing classE ip address")
     REQUIRE(ipaddress == 4218372692);
 }
 
+// extractOctets ----------------------------------------------------------
+
+
+TEST_CASE("extractOctets - extracting class a address")
+{
+    ip address = 2102267168;
+    octet oct1;
+    octet oct2;
+    octet oct3;
+    octet oct4;
+
+    extractOctets(address, oct1, oct2, oct3, oct4);
+    CHECK(oct1 == 125);
+    CHECK(oct2 == 78);
+    CHECK(oct3 == 13);
+    CHECK(oct4 == 32);
+}
+
+
+TEST_CASE("extractOctets - extracting class b address - example test.")
+{
+    ip address = 2543783700;
+    octet oct1;
+    octet oct2;
+    octet oct3;
+    octet oct4;
+
+    extractOctets(address, oct1, oct2, oct3, oct4);
+    CHECK(oct1 == 151);
+    CHECK(oct2 == 159);
+    CHECK(oct3 == 15);
+    CHECK(oct4 == 20);
+}
