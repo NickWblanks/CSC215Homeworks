@@ -106,3 +106,76 @@ TEST_CASE("extractOctets - extracting class b address - example test.")
     CHECK(oct3 == 15);
     CHECK(oct4 == 20);
 }
+
+
+TEST_CASE("extractOctets - extracting class b address")
+{
+    ip address = 2153407789;
+    octet oct1;
+    octet oct2;
+    octet oct3;
+    octet oct4;
+
+    extractOctets(address, oct1, oct2, oct3, oct4);
+    CHECK(oct1 == 128);
+    CHECK(oct2 == 90);
+    CHECK(oct3 == 101);
+    CHECK(oct4 == 45);
+}
+
+
+
+TEST_CASE("extractOctets - extracting class c address")
+{
+    ip address = 3390465352;
+    octet oct1;
+    octet oct2;
+    octet oct3;
+    octet oct4;
+
+    extractOctets(address, oct1, oct2, oct3, oct4);
+    CHECK(oct1 == 202);
+    CHECK(oct2 == 22);
+    CHECK(oct3 == 101);
+    CHECK(oct4 == 72);
+}
+
+
+
+
+TEST_CASE("extractOctets - extracting class d address")
+{
+    ip address = 3833006883;
+    octet oct1;
+    octet oct2;
+    octet oct3;
+    octet oct4;
+
+    extractOctets(address, oct1, oct2, oct3, oct4);
+    CHECK(oct1 == 228);
+    CHECK(oct2 == 119);
+    CHECK(oct3 == 11);
+    CHECK(oct4 == 35);
+}
+
+
+TEST_CASE("extractOctets - extracting class E address")
+{
+    ip address = 4218372692;
+    octet oct1;
+    octet oct2;
+    octet oct3;
+    octet oct4;
+
+    extractOctets(address, oct1, oct2, oct3, oct4);
+    CHECK(oct1 == 251);
+    CHECK(oct2 == 111);
+    CHECK(oct3 == 66);
+    CHECK(oct4 == 84);
+}
+
+
+
+
+
+
