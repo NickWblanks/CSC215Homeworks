@@ -32,7 +32,7 @@ networkType getNetworkType(ip address)
 {
     octet oct1, oct2, oct3, oct4;
     extractOctets(address, oct1, oct2, oct3, oct4);
-    if (oct1 >= 1 && oct1 <= 127);
+    if (oct1 >= 1 && oct1 <= 127)
     {
         if (oct1 == 10)
         {

@@ -195,6 +195,67 @@ TEST_CASE("getNetworkTYpe - testing APRIVATE network")
 }
 
 
+TEST_CASE("getNetworkType - testing LOCALHOST")
+{
+    ip address = 2134328920;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == LOCALHOST);
+}
+
+
+TEST_CASE("getNetworkType - testing CLASSB")
+{
+    ip address = 2543783700;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSB);
+}
+
+
+TEST_CASE("getNetworkType - testing BPRIVATE")
+{
+    ip address = 2887276588;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == BPRIVATE);
+}
+
+
+TEST_CASE("getNetworkType - testing CLASSC")
+{
+    ip address = 3396750939;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSC);
+}
+
+
+TEST_CASE("getNetworkType - testing CPRIVATE")
+{
+    ip address = 3232249689;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CPRIVATE);
+}
+
+
+TEST_CASE("getNetworkType - testing CLASSD")
+{
+    ip address = 3862384249;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSD);
+}
+
+
+TEST_CASE("getNetworkType - testing CLASSE")
+{
+    ip address = 4123548095;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSE);
+}
 
 
 
