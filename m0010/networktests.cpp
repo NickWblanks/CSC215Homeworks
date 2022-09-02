@@ -258,5 +258,96 @@ TEST_CASE("getNetworkType - testing CLASSE")
 }
 
 
+TEST_CASE("getNetworkType - testing INVALID boundary.")
+{
+    ip address = 210599;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == INVALID);
+}
+
+
+TEST_CASE("getNetworkType - testing classA boundary.")
+{
+    ip address = 268435456;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSA);
+}
+
+
+
+TEST_CASE("getNetworkType - testingLOCALHOST boundary.")
+{
+    ip address = 2130706432;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == LOCALHOST);
+}
+
+
+TEST_CASE("getNetworkType - testing CLASSB boundary")
+{
+    ip address = 2147483648;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSB);
+}
+
+
+
+TEST_CASE("getNetworkType - testing classB - 172.15 - classB boundary")
+{
+    ip address = 2886664192;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSB);
+}
+
+
+TEST_CASE("getNetworkType - testing BPRIVATE boundary")
+{
+    ip address = 2886729728;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == BPRIVATE);
+}
+
+
+TEST_CASE("getNetworkType - testing classC - 192.169 - classc boundary")
+{
+    ip address = 3232301056;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSC);
+}
+
+
+TEST_CASE("getNetworkType - testing CPRIVATE boundary")
+{
+    ip address = 3232235520;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CPRIVATE);
+}
+
+
+
+TEST_CASE("getNetworkType - testing CLASSD boundary")
+{
+    ip address = 4026531839;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSD);
+}
+
+
+TEST_CASE("getNetworkType - testing CLASSE boundary")
+{
+    ip address = 4026531840;
+    networkType classified;
+    classified = getNetworkType(address);
+    REQUIRE(classified == CLASSE);
+}
 
 
