@@ -7,9 +7,9 @@ using namespace std;
 #include <iomanip>
 
 
-float minArray(float *array, int size);
+float *minArray(float *array, int size);
 
-float maxArray(float* array, int size);
+float *maxArray(float* array, int size);
 
 
 int main(int argc, char** argv)
@@ -47,15 +47,15 @@ int main(int argc, char** argv)
     {
         size++;
     }
+    if (dataNum > size)
+    {
+        dataNum = size;
+    }
     array = new (nothrow) float [size];
     if (array == nullptr)
     {
         cout << "Unable to allocate memory" << endl;
         return 0;
-    }
-    if (dataNum > size)
-    {
-        dataNum = size;
     }
     if (dataNum < size)
     {
@@ -68,8 +68,8 @@ int main(int argc, char** argv)
     {
         i++;
     }
-    max = maxArray(array, size);
-    min = minArray(array, size);
+    max = *maxArray(array, size);
+    min = *minArray(array, size);
     fout << dataNum << endl;
     fout << setprecision(5) << min << " - " << max << endl;
     for (i = 0; i < size; i++)
@@ -83,13 +83,6 @@ int main(int argc, char** argv)
         fout << endl;
     }
     delete[] array;
-
-
-
-
-
-
-
     fin.close();
     fout.close();
     return 0;
@@ -97,7 +90,7 @@ int main(int argc, char** argv)
 
 
 
-float minArray(float *array, int size)
+float *minArray(float *array, int size)
 {
     int i;
     int min = 0;
@@ -108,11 +101,11 @@ float minArray(float *array, int size)
             min = i + 1;
         }
     }
-    return array[min];
+    return &array[min];
 }
 
 
-float maxArray(float* array, int size)
+float *maxArray(float* array, int size)
 {
     int i;
     int max = 0;
@@ -123,5 +116,5 @@ float maxArray(float* array, int size)
             max = i + 1;
         }
     }
-    return array[max];
+    return &array[max];
 }
