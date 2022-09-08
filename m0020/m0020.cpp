@@ -70,13 +70,14 @@ int main(int argc, char** argv)
     }
     max = *maxArray(array, size);
     min = *minArray(array, size);
+    fout << fixed << showpoint;
     fout << dataNum << endl;
-    fout << setprecision(5) << min << " - " << max << endl;
+    fout << setprecision(3) << min << " - " << max << endl;
     for (i = 0; i < size; i++)
     {
         for (j = 0; j < 5 && k < size; j++)
         {
-            fout << setprecision(5);
+            fout << setprecision(3);
             fout << right << setw(15) << array[k];
             k++;
         }
