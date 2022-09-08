@@ -19,6 +19,8 @@ int main(int argc, char** argv)
     int size = 0;
     float *array = nullptr;
     float fNums;
+    float min;
+    float max;
     int dataNum;
     int i = 0;
     int j = 0;
@@ -66,7 +68,10 @@ int main(int argc, char** argv)
     {
         i++;
     }
+    max = maxArray(array, size);
+    min = minArray(array, size);
     fout << dataNum << endl;
+    fout << setprecision(5) << min << " - " << max << endl;
     for (i = 0; i < size; i++)
     {
         for (j = 0; j < 5 && k < size; j++)
