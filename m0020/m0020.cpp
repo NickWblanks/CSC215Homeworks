@@ -86,6 +86,7 @@ int main(int argc, char** argv)
             fout << endl;
         }
     }
+    fout << endl;
     delete[] array;
     fin.close();
     fout.close();
