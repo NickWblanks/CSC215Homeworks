@@ -81,7 +81,10 @@ int main(int argc, char** argv)
             fout << right << setw(15) << array[k];
             k++;
         }
-        fout << endl;
+        if (k < size)
+        {
+            fout << endl;
+        }
     }
     delete[] array;
     fin.close();
