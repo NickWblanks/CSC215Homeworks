@@ -4,6 +4,7 @@
 #include <cstring>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -11,5 +12,5 @@ enum trimType{ BOTH, FRONT, END};
 
 void cTrim(char cstring[], trimType method);
 
-void sTrim(string sString, trimType method);
+void sTrim(string &sString, trimType method);
 

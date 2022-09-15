@@ -132,7 +132,7 @@
   <ItemGroup>
     <ClCompile Include="m0030.cpp" />
     <ClCompile Include="trim.cpp" />
-    <ClCompile Include="trimestcases.cpp" />
+    <ClCompile Include="trimtestcases.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
