@@ -112,10 +112,26 @@ TEST_CASE("sTrim - testing strings with ws on FRONT")
     }
 }
 
-TEST_CASE("sTrim - front")
+TEST_CASE("sTrim - front1")
 {
     string str1 = "Star Wars    ";
     string str2 = "Star Wars    ";
+    sTrim(str1, FRONT);
+    REQUIRE(str1 == str2);
+}
+
+TEST_CASE("sTrim - front2")
+{
+    string str1 = "";
+    string str2 = "";
+    sTrim(str1, FRONT);
+    REQUIRE(str1 == str2);
+}
+
+TEST_CASE("sTrim - front3")
+{
+    string str1 = "           ";
+    string str2 = "";
     sTrim(str1, FRONT);
     REQUIRE(str1 == str2);
 }

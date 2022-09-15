@@ -40,7 +40,7 @@ void sTrim(string &sString, trimType method)
     if (method == FRONT || method == BOTH)
     {
         it = sString.begin();
-        while (isspace(*it))
+        while (it != sString.end() && isspace(*it))
         {
             count++;
             it++;
