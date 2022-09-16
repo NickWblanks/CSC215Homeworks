@@ -2,11 +2,12 @@
 
 void cTrim(char cstring[], trimType method)
 {
-    ofstream fout;
+    //j is size of array
+    int j = int(strlen(cstring));
     int i = 0;
     if (method == FRONT || method == BOTH)
     {
-        while (isspace(cstring[i]))
+        while (i < j && isspace(cstring[i]) )
         {
             i++;
         }
@@ -14,15 +15,21 @@ void cTrim(char cstring[], trimType method)
     }
     if (method == END || method == BOTH)
     {
-        char nStr[1] = "";
-        size_t j = strlen(cstring);
-        j = j- 1;
-        cout << j << endl;
-        while(isspace(cstring[j]))
+        j = j - 1;
+        if (j < 0)
+        {
+            cstring[j + 1] = '\0';
+        }
+        if (j == 0)
+        {
+            cstring[j] = '\0';
+        }
+        while(j > 0 && isspace(cstring[j]))
         {
             j--;
         }
         cstring[j+1] = '\0';
+        cout << cstring << endl;
     }
 }
 
@@ -45,12 +52,19 @@ void sTrim(string &sString, trimType method)
     {
         size_t size = sString.size();
         it = sString.end();
-        it--;
+        if (it != sString.begin())
+        {
+            it--;
+        }
         count2 = size;
         while (it != sString.begin() && isspace(*it))
         {
             count2--;
             it--;
+        }
+        if (it == sString.begin() && count2 > 0)
+        {
+            count2--;
         }
         sString.erase(count2);
     }

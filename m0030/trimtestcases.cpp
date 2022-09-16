@@ -51,7 +51,7 @@
 
 
 
-TEST_CASE("cTrim - testing ws on front end")
+TEST_CASE("cTrim - testing ws on front")
 {
     char str1[20] = "   four";
     char str2[20] = "four";
@@ -62,16 +62,65 @@ TEST_CASE("cTrim - testing ws on front end")
         cTrim(str1, FRONT);
         CHECK(strcmp(str1, str2) == 0);
     }
-    /*SECTION("End - cstrings")
+    SECTION("End - cstrings")
     {
         cTrim(str1, END);
         CHECK(strcmp(str1, str3) == 0);
-    }*/
-    /*SECTION("Both - cstrings")
+    }
+    SECTION("Both - cstrings")
     {
         cTrim(str1, BOTH);
         CHECK(strcmp(str1, str2) == 0);
-    }*/
+    }
+}
+
+
+TEST_CASE("cTrim - testing ws for end and both.")
+{
+    char str1[30] = "You dont have the right  ";
+    char str2[30] = "You dont have the right";
+    char str3[30] = "   space   ";
+    char str4[30] = "   space";
+    char str5[30] = "space";
+    SECTION("end - first 2 strings")
+    {
+        cTrim(str1, END);
+        REQUIRE(strcmp(str1, str2) == 0);
+    }
+    SECTION("end - second 2 strings")
+    {
+        cTrim(str3, END);
+        REQUIRE(strcmp(str3, str4) == 0);
+    }
+    SECTION("both - checking both")
+    {
+        cTrim(str3, BOTH);
+        REQUIRE(strcmp(str3, str5) == 0);
+    }
+}
+
+TEST_CASE("cTrim - both - weird strings")
+{
+    char str1[30] = "";
+    char str2[30] = "";
+    char str3[30] = "      ";
+    char str4[40] = "    fort    night    ";
+    char str5[40] = "fort    night";
+    SECTION("Both - no str")
+    {
+        cTrim(str1, BOTH);
+        REQUIRE(strcmp(str1, str2) == 0);
+    }
+    SECTION("Both - empty str")
+    {
+        cTrim(str3, BOTH);
+        REQUIRE(strcmp(str3, str2) == 0);
+    }
+    SECTION("Both - whitespace everywhere")
+    {
+        cTrim(str4, BOTH);
+        REQUIRE(strcmp(str4, str5) == 0);
+    }
 }
 
 TEST_CASE("cTrim - testing ws on end")
@@ -143,3 +192,28 @@ TEST_CASE("sTrim - End1")
     sTrim(str1, END);
     REQUIRE(str1 == str2);
 }
+
+TEST_CASE("sTrims - end2")
+{
+    string str1 = "";
+    string str2 = "";
+    sTrim(str1, END);
+    REQUIRE(str1 == str2);
+}
+
+TEST_CASE("sTrim - end3")
+{
+    string str1 = "      ";
+    string str2 = "";
+    sTrim(str1, END);
+    REQUIRE(str1 == str2);
+}
+
+TEST_CASE("sTrim - end4")
+{
+    string str1 = "   word";
+    string str2 = "   word";
+    sTrim(str1, END);
+    REQUIRE(str1 == str2);
+}
+
