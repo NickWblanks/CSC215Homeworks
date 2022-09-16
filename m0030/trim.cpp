@@ -30,7 +30,6 @@ void cTrim(char cstring[], trimType method)
             i++;
         }
         strcpy(cstring, &cstring[i]);
-        cout << cstring << endl;
     }
     
 }

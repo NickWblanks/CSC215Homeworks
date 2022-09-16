@@ -217,3 +217,26 @@ TEST_CASE("sTrim - end4")
     REQUIRE(str1 == str2);
 }
 
+TEST_CASE("sTrim - both")
+{
+    string str1 = "";
+    string str2 = "";
+    string str3 = "      ";
+    string str4 = "   space   ";
+    string str5 = "space";
+    SECTION("both - testing no str")
+    {
+        sTrim(str1, BOTH);
+        REQUIRE(str1 == str2);
+    }
+    SECTION("Both - testing empty str")
+    {
+        sTrim(str3, BOTH);
+        REQUIRE(str3 == str1);
+    }
+    SECTION("Both - testing spaces on both sides of a word")
+    {
+        sTrim(str4, BOTH);
+        REQUIRE(str4 == str5);
+    }
+}
