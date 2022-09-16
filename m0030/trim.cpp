@@ -5,14 +5,6 @@ void cTrim(char cstring[], trimType method)
     //j is size of array
     int j = int(strlen(cstring));
     int i = 0;
-    if (method == FRONT || method == BOTH)
-    {
-        while (i < j && isspace(cstring[i]) )
-        {
-            i++;
-        }
-        strcpy(cstring, &cstring[i]);
-    }
     if (method == END || method == BOTH)
     {
         j = j - 1;
@@ -24,13 +16,23 @@ void cTrim(char cstring[], trimType method)
         {
             cstring[j] = '\0';
         }
-        while(j > 0 && isspace(cstring[j]))
+        while (j >= 0 && isspace(cstring[j]))
         {
             j--;
         }
-        cstring[j+1] = '\0';
+        cstring[j + 1] = '\0';
+    }
+    if (method == FRONT || method == BOTH)
+    {
+        
+        while (i < j && isspace(cstring[i]) )
+        {
+            i++;
+        }
+        strcpy(cstring, &cstring[i]);
         cout << cstring << endl;
     }
+    
 }
 
 void sTrim(string &sString, trimType method)
