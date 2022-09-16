@@ -22,14 +22,7 @@ void cTrim(char cstring[], trimType method)
         {
             j--;
         }
-        cout << j << endl;
-        i = 0;
-        strcat(cstring, nStr);
-        cout << cstring << endl;
-        char filename[30] = "checkFile.txt";
-        fout.open("checkFile.txt");
-        fout << cstring << endl;
-
+        cstring[j+1] = '\0';
     }
 }
 
