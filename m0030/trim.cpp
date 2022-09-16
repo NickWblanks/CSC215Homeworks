@@ -35,6 +35,7 @@ void cTrim(char cstring[], trimType method)
 
 void sTrim(string &sString, trimType method)
 {
+    size_t count2;
     int count = 0;
     string::iterator it;
     if (method == FRONT || method == BOTH)
@@ -46,6 +47,19 @@ void sTrim(string &sString, trimType method)
             it++;
         }
         sString = sString.substr(count);
+    }
+    if (method == END || method == BOTH)
+    {
+        size_t size = sString.size();
+        it = sString.end();
+        it--;
+        count2 = size;
+        while (it != sString.begin() && isspace(*it))
+        {
+            count2--;
+            it--;
+        }
+        sString.erase(count2);
     }
 }
 

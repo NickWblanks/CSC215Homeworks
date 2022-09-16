@@ -26,28 +26,28 @@
 //}
 //
 //
-TEST_CASE("sTrim - testing strings with no ws on either end")
-{
-    string theString = "Catch with Sections!";
-    string theAnswer = "Catch with Sections!";
-    REQUIRE(theString == theAnswer);
-    
-    SECTION("Front - just a phrase")
-    {
-        sTrim(theString, FRONT);
-        REQUIRE(theAnswer == theString);
-    }
-    SECTION("End - just a phrase")
-    {
-        sTrim(theString, END);
-        REQUIRE(theAnswer == theString);
-    }
-    SECTION("Both - just a phrase")
-    {
-        sTrim(theString, BOTH);
-        REQUIRE(theAnswer == theString);
-    }
-}
+//TEST_CASE("sTrim - testing strings with no ws on either end")
+//{
+//    string theString = "Catch with Sections!";
+//    string theAnswer = "Catch with Sections!";
+//    REQUIRE(theString == theAnswer);
+//    
+//    SECTION("Front - just a phrase")
+//    {
+//        sTrim(theString, FRONT);
+//        REQUIRE(theAnswer == theString);
+//    }
+//    SECTION("End - just a phrase")
+//    {
+//        sTrim(theString, END);
+//        REQUIRE(theAnswer == theString);
+//    }
+//    SECTION("Both - just a phrase")
+//    {
+//        sTrim(theString, BOTH);
+//        REQUIRE(theAnswer == theString);
+//    }
+//}
 
 
 
@@ -133,5 +133,13 @@ TEST_CASE("sTrim - front3")
     string str1 = "           ";
     string str2 = "";
     sTrim(str1, FRONT);
+    REQUIRE(str1 == str2);
+}
+
+TEST_CASE("sTrim - End1")
+{
+    string str1 = "word    ";
+    string str2 = "word";
+    sTrim(str1, END);
     REQUIRE(str1 == str2);
 }
