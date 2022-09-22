@@ -36,8 +36,18 @@ int main(int argc, char **argv)
         cout << "Unable to open binary file: " << argv[1] << endl;
         return 0;
     }
-    string empID(argv[2]);
-    int num = stoi(empID);
+    int num = atoi(argv[2]);
+    printFile(file);
+    cout << endl;
+    bool foundID = applyBonus(file, num);
+    if (foundID == true)
+    {
+        cout << "Employee ID " << num << " has been updated." << endl;
+    }
+    if (foundID == false)
+    {
+        cout << "Employee ID " << num << " was not found." << endl;
+    }
     printFile(file);
     
 
@@ -48,22 +58,38 @@ int main(int argc, char **argv)
 
 void printFile(fstream& file)
 {
-    empData Records;
-    int i = 0;
-    file.seekg(0, ios::end);
-    size_t fsize = file.tellg() / sizeof(empData);
     file.clear();
     file.seekg(0, ios::beg);
+    empData Records;
     cout << showpoint << fixed << setprecision(2) << endl;
-    while (i < fsize)
+    while (file.read((char*) &Records, sizeof(empData)))
     {
-        file.read((char*) &Records, sizeof(empData));
-        cout << setw(7) << Records.id << " " << left << setw(20) << Records.firstName << setw(40) << Records.lastName << right << " Salary: " << setw(10) << Records.salary << " Bonus: " << setw(10) << Records.bonus << endl;
-        i++;
+        cout << setw(7) << Records.id << " " 
+             << left << setw(20) << Records.firstName
+             << setw(40) << Records.lastName << right
+             << " Salary: " << setw(10) << Records.salary << " Bonus: "
+             << setw(10) << Records.bonus << endl;
     }
 }
 
 bool applyBonus(fstream& file, int empID)
 {
-    return true;
+    double Bonus = 500.00;
+    int i = 0;
+    empData newRec;
+    file.clear();
+    file.seekg(0, ios::beg);
+    while (file.read((char*) &newRec, sizeof(empData)))
+    {
+        if (newRec.id == empID)
+        {
+            newRec.bonus += Bonus;
+            //file.seekp(0, ios::beg);
+            file.seekp(i * sizeof(empData), ios::beg);
+            file.write((char*) &newRec, sizeof(empData));
+            return true;
+        }
+        i++;
+    }
+    return false;
 }
