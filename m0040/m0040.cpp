@@ -48,6 +48,7 @@ int main(int argc, char **argv)
     {
         cout << "Employee ID " << num << " was not found." << endl;
     }
+    cout << endl;
     printFile(file);
     file.close();
     return 0;
