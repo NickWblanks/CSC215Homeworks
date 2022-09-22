@@ -44,14 +44,11 @@ int main(int argc, char **argv)
     {
         cout << "Employee ID " << num << " has been updated." << endl;
     }
-    if (foundID == false)
+    else
     {
         cout << "Employee ID " << num << " was not found." << endl;
     }
     printFile(file);
-    
-
-
     file.close();
     return 0;
 }
@@ -61,7 +58,7 @@ void printFile(fstream& file)
     file.clear();
     file.seekg(0, ios::beg);
     empData Records;
-    cout << showpoint << fixed << setprecision(2) << endl;
+    cout << showpoint << fixed << setprecision(2);
     while (file.read((char*) &Records, sizeof(empData)))
     {
         cout << setw(7) << Records.id << " " 
