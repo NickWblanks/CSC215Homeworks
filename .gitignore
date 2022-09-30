@@ -6,5 +6,5 @@
 *.obj
 *.txt
 *.bin
-*.cvs
+*.csv
 *.data
