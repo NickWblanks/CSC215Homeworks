@@ -24,6 +24,12 @@ bool outFcheck(char* fileName);
 
 bool sortById(EmployeeData left, EmployeeData right);
 
+bool sortBySalary(EmployeeData left, EmployeeData right);
+
+bool sortByNames(EmployeeData left, EmployeeData right);
+
+
+
 int optionCheck(char* option);
 
 
@@ -53,6 +59,7 @@ int main(int argc, char** argv)
         cout << "-i - sort by id" << endl;
         cout << "-n - sort by name" << endl;
         cout << "-s - sort by salary" << endl;
+        return 0;
     }
     fin.open(argv[1]);
     fout.open(argv[2]);
@@ -67,7 +74,6 @@ int main(int argc, char** argv)
         return 0;
     }
     getline(fin, header, '\n');
-    cout << header << endl;
     while (getline(fin, holder, '\n'))
     {
         i++;
@@ -91,6 +97,14 @@ int main(int argc, char** argv)
     if (check == 1)
     {
         sort(v.begin(), v.end(), sortById);
+    }
+    if (check == 2)
+    {
+        sort(v.begin(), v.end(), sortByNames);
+    }
+    if (check == 3)
+    {
+        sort(v.begin(), v.end(), sortBySalary);
     }
 
     j = 0;
@@ -144,7 +158,7 @@ bool sortById(EmployeeData left, EmployeeData right)
 
 bool sortBySalary(EmployeeData left, EmployeeData right)
 {
-    if (left.salary < right.salary)
+    if (left.salary > right.salary)
     {
         return true;
     }
@@ -159,7 +173,7 @@ bool sortByNames(EmployeeData left, EmployeeData right)
     }
     if (left.lastN == right.lastN)
     {
-        if (left.firstN < right.lastN)
+        if (left.firstN < right.firstN)
         {
             return true;
         }
