@@ -55,7 +55,7 @@ int main(int argc, char** argv)
     check = optionCheck(argv[3]);
     if (check == 0)
     {
-        cout << "Invalid sort method:" << endl;
+        cout << "Invalid Sort Method:" << endl;
         cout << "-i - sort by id" << endl;
         cout << "-n - sort by name" << endl;
         cout << "-s - sort by salary" << endl;
