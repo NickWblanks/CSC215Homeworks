@@ -10,8 +10,7 @@ double newtonApprox(double guess, function<double(double)>funct, function<double
     }
     if (funG > epsilon)
     {
-        ans = guess - (funct(guess) / functP(guess));
-        cout << ans << endl;
+        ans = guess - funct(guess) / functP(guess);
         guess = newtonApprox(ans, funct, functP, epsilon);
     }
     return guess;
