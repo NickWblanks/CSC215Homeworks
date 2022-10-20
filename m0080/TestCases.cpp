@@ -101,3 +101,4 @@ TEST_CASE("retrievePosition - list with only the item")
     list.insert(99);
     CHECK(list.retrievePosition(99) == 1);
 }
+
