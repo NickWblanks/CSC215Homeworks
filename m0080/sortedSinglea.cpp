@@ -75,6 +75,12 @@ int sortedSingle::retrievePosition(int item)
 
 sortedSingle::~sortedSingle()
 {
-
+    node* temp;
+    temp = headptr;
+    while (temp != nullptr)
+    {
+        delete temp;
+        temp = temp->next;
+    }
 }
 

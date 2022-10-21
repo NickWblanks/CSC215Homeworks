@@ -2,6 +2,7 @@
 #include "..\catch.hpp"
 #include <sstream>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -66,6 +67,7 @@ TEST_CASE("Find - list with item")
     list.insert(20);
     list.insert(30);
     list.insert(40);
+    list.print(cout, ", ");
     CHECK(list.find(30) == true);
 }
 
@@ -82,6 +84,7 @@ TEST_CASE("retrievePosition - list without item")
     list.insert(2);
     list.insert(3);
     list.insert(5);
+    list.print(cout, ", ");
     CHECK(list.retrievePosition(4) == 0);
 }
 
@@ -130,4 +133,40 @@ TEST_CASE("Insert - middle")
     list.insert(99);
     list.insert(90);
     CHECK(list.insert(95) == true);
+}
+
+TEST_CASE("Print - cout")
+{
+    sortedSingle listC;
+    listC.insert(1);
+    listC.insert(2);
+    listC.insert(4);
+    listC.insert(8);
+    listC.insert(16);
+    listC.print(cout, ", ");
+}
+
+TEST_CASE("Print - fout")
+{
+    ofstream fout;
+    fout.open("printText.txt");
+    sortedSingle listC;
+    listC.insert(1);
+    listC.insert(2);
+    listC.insert(4);
+    listC.insert(8);
+    listC.insert(16);
+    listC.print(fout, ", ");
+}
+
+TEST_CASE("Print - sout")
+{
+    ostringstream sout;
+    sortedSingle listC;
+    listC.insert(1);
+    listC.insert(2);
+    listC.insert(4);
+    listC.insert(8);
+    listC.insert(16);
+    listC.print(sout, ", ");
 }

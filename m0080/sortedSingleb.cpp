@@ -28,8 +28,24 @@ bool sortedSingle::insert(int item)
     return true;
 }
 
-//void sortedSingle::print(ostream& out, string seperator = ", ")
-//{
-//
-//}
+void sortedSingle::print(ostream &out, string seperator)
+{
+    node* temp;
+    temp = headptr;
+    if (headptr == nullptr)
+    {
+        return;
+    }
+    while (temp != nullptr)
+    {
+        if (temp->next == nullptr)
+        {
+            out << temp->theItem;
+            out << "\n";
+            return;
+        }
+        out << temp->theItem << seperator;   
+        temp = temp->next;
+    }
+}
 
