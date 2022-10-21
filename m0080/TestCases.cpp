@@ -102,3 +102,32 @@ TEST_CASE("retrievePosition - list with only the item")
     CHECK(list.retrievePosition(99) == 1);
 }
 
+
+TEST_CASE("Insert - empty list")
+{
+    sortedSingle list;
+    CHECK(list.insert(99) == true);
+}
+
+TEST_CASE("Insert - at front")
+{
+    sortedSingle list;
+    list.insert(99);
+    CHECK(list.insert(90) == true);
+}
+
+TEST_CASE("Insert - at end")
+{
+    sortedSingle list;
+    list.insert(99);
+    list.insert(90);
+    CHECK(list.insert(100) == true);
+}
+
+TEST_CASE("Insert - middle")
+{
+    sortedSingle list;
+    list.insert(99);
+    list.insert(90);
+    CHECK(list.insert(95) == true);
+}

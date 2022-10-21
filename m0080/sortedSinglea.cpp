@@ -72,6 +72,7 @@ int sortedSingle::retrievePosition(int item)
     }
     return 0;
 }
+
 sortedSingle::~sortedSingle()
 {
 
