@@ -171,3 +171,9 @@ TEST_CASE("Print - sout")
     listC.print(sout, ", ");
     REQUIRE(sout.str() == "1, 2, 4, 8, 16");
 }
+
+TEST_CASE("Remove - empty list")
+{
+    sortedSingle list;
+    CHECK(list.remove(90) == false);
+}
