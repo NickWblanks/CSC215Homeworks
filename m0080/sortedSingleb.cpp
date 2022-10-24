@@ -41,7 +41,6 @@ void sortedSingle::print(ostream &out, string seperator)
         if (temp->next == nullptr)
         {
             out << temp->theItem;
-            out << "\n";
             return;
         }
         out << temp->theItem << seperator;   

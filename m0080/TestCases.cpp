@@ -169,4 +169,5 @@ TEST_CASE("Print - sout")
     listC.insert(8);
     listC.insert(16);
     listC.print(sout, ", ");
+    REQUIRE(sout.str() == "1, 2, 4, 8, 16");
 }
