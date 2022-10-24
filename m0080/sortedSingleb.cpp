@@ -36,15 +36,11 @@ void sortedSingle::print(ostream &out, string seperator)
     {
         return;
     }
-    while (temp != nullptr)
+    while (temp->next != nullptr)
     {
-        if (temp->next == nullptr)
-        {
-            out << temp->theItem;
-            return;
-        }
         out << temp->theItem << seperator;   
         temp = temp->next;
     }
+    out << temp->theItem;
 }
 

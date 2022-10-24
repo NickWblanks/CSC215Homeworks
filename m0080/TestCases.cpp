@@ -177,3 +177,59 @@ TEST_CASE("Remove - empty list")
     sortedSingle list;
     CHECK(list.remove(90) == false);
 }
+
+TEST_CASE("Remove - front of list")
+{
+    sortedSingle list;
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.remove(1);
+    list.print(cout, ", ");
+}
+
+TEST_CASE("Remove - middle of list")
+{
+    sortedSingle list;
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.remove(3);
+    list.print(cout, ", ");
+}
+
+TEST_CASE("Remove - end of list")
+{
+    sortedSingle list;
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.remove(4);
+    list.print(cout, ", ");
+}
+
+TEST_CASE("Remove - not in list")
+{
+    sortedSingle list;
+    list.insert(1);
+    list.insert(2);
+    list.insert(3);
+    list.insert(4);
+    list.remove(5);
+    list.print(cout, ", ");
+}
+
+TEST_CASE("Remove - last list")
+{
+    sortedSingle list;
+    list.insert(1);
+    list.remove(1);
+    CHECK(list.empty() == true);
+}
+
+
+
+
