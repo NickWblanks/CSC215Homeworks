@@ -45,11 +45,16 @@ void sortedSingle::clear()
         return;
     }
     item = temp->theItem;
-    while (temp != nullptr && find(item) == true)
+    while (find(item) == true)
     {
         remove(item);
+        temp = headptr;
+        if (temp == nullptr)
+        {
+            return;
+        }
         item = temp->theItem;
     }
-    
+    return;
 }
 

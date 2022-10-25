@@ -67,7 +67,6 @@ TEST_CASE("Find - list with item")
     list.insert(20);
     list.insert(30);
     list.insert(40);
-    list.print(cout, ", ");
     CHECK(list.find(30) == true);
 }
 
@@ -84,7 +83,6 @@ TEST_CASE("retrievePosition - list without item")
     list.insert(2);
     list.insert(3);
     list.insert(5);
-    list.print(cout, ", ");
     CHECK(list.retrievePosition(4) == 0);
 }
 
@@ -186,7 +184,8 @@ TEST_CASE("Remove - front of list")
     list.insert(3);
     list.insert(4);
     list.remove(1);
-    list.print(cout, ", ");
+    CHECK(list.size() == 3);
+    CHECK(list.find(1) == false);
 }
 
 TEST_CASE("Remove - middle of list")
@@ -197,7 +196,8 @@ TEST_CASE("Remove - middle of list")
     list.insert(3);
     list.insert(4);
     list.remove(3);
-    list.print(cout, ", ");
+    CHECK(list.size() == 3);
+    CHECK(list.find(3) == false);
 }
 
 TEST_CASE("Remove - end of list")
@@ -208,7 +208,7 @@ TEST_CASE("Remove - end of list")
     list.insert(3);
     list.insert(4);
     list.remove(4);
-    list.print(cout, ", ");
+    CHECK(list.size() == 3);
 }
 
 TEST_CASE("Remove - not in list")
@@ -219,7 +219,7 @@ TEST_CASE("Remove - not in list")
     list.insert(3);
     list.insert(4);
     list.remove(5);
-    list.print(cout, ", ");
+    CHECK(list.size() == 4);
 }
 
 TEST_CASE("Remove - last list")
@@ -233,6 +233,26 @@ TEST_CASE("Remove - last list")
 TEST_CASE("Clear - empty list")
 {
     sortedSingle list;
+    list.clear();
+    CHECK(list.empty() == true);
+}
+
+TEST_CASE("Clear - list with 1 item")
+{
+    sortedSingle list;
+    list.insert(1);
+    list.clear();
+    CHECK(list.empty() == true);
+}
+
+TEST_CASE("Clear - list with many items")
+{
+    sortedSingle list;
+    list.insert(10);
+    list.insert(20);
+    list.insert(30);
+    list.insert(40);
+    list.insert(50);
     list.clear();
     CHECK(list.empty() == true);
 }
