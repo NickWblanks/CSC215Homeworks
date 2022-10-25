@@ -34,12 +34,8 @@ bool sortedSingle::remove(int item)
 void sortedSingle::clear()
 {
     node* temp;
-    node* curr;
-    node* prev;
     int item;
     temp = headptr;
-    curr = headptr;
-    prev = headptr;
     if (temp == nullptr)
     {
         return;
