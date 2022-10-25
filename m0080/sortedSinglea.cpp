@@ -75,4 +75,6 @@ int sortedSingle::retrievePosition(int item)
 
 sortedSingle::~sortedSingle()
 {
+    clear();
+    delete headptr;
 }
