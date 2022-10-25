@@ -31,3 +31,25 @@ bool sortedSingle::remove(int item)
     return true;
 }
 
+void sortedSingle::clear()
+{
+    node* temp;
+    node* curr;
+    node* prev;
+    int item;
+    temp = headptr;
+    curr = headptr;
+    prev = headptr;
+    if (temp == nullptr)
+    {
+        return;
+    }
+    item = temp->theItem;
+    while (temp != nullptr && find(item) == true)
+    {
+        remove(item);
+        item = temp->theItem;
+    }
+    
+}
+

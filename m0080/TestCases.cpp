@@ -230,6 +230,16 @@ TEST_CASE("Remove - last list")
     CHECK(list.empty() == true);
 }
 
+TEST_CASE("Clear - empty list")
+{
+    sortedSingle list;
+    list.clear();
+    CHECK(list.empty() == true);
+}
+
+
+
+
 
 
 
