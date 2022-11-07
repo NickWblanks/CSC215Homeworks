@@ -273,6 +273,42 @@ TEST_CASE("copyConstructor - empty list") //should make a copy list that is empt
     CHECK(cList.empty() == true);
 }
 
+TEST_CASE("copyConstructor - list with 1 item")
+{
+    sortedSingle list1;
+    list1.insert(10);
+    sortedSingle cList(list1);
+    CHECK(cList.empty() == false);
+    CHECK(cList.find(10) == true);
+    CHECK(cList.size() == 1);
+}
+
+TEST_CASE("copyConstructor - list with 2 item")
+{
+    sortedSingle list1;
+    list1.insert(10);
+    list1.insert(20);
+    sortedSingle cList(list1);
+    CHECK(cList.empty() == false);
+    CHECK(cList.find(10) == true);
+    CHECK(cList.find(20) == true);
+    CHECK(cList.size() == 2);
+}
+
+TEST_CASE("copyConstructor - list with many items")
+{
+    sortedSingle list1;
+    list1.insert(10);
+    list1.insert(20);
+    list1.insert(30);
+    list1.insert(40);
+    list1.insert(50);
+    list1.insert(60);
+    sortedSingle cList(list1);
+    cList.print(cout);
+    CHECK(cList.size() == 6);
+    cList.print(cout);
+}
 
 
 

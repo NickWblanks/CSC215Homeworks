@@ -12,18 +12,23 @@ sortedSingle::sortedSingle(sortedSingle &list)
         headptr = nullptr;
         return;
     }
-    node* copy;
-    node* paste = headptr;
+    headptr = nullptr;
+    node* copy = list.headptr;
+    node* paste;
+
     headptr = new (nothrow) node;
-    headptr->theItem = list.headptr->theItem;
+    headptr->theItem = copy->theItem;//copy 1 item in.
     headptr->next = nullptr;
-    copy = list.headptr->next;
-    while (copy != nullptr)
+
+    copy = list.headptr->next; //seek next item
+    paste = headptr;
+    while (copy != nullptr) //if next is null drop out
     {
         paste->next = new (nothrow) node;
         paste = paste->next;
         paste->theItem = copy->theItem;
         paste->next = nullptr;
+        copy = copy->next;
     }
 }
 
