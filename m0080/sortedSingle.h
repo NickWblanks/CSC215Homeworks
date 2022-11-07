@@ -23,10 +23,10 @@ class sortedSingle
     public:
 
     // do not write.
-    sortedSingle( sortedSingle &l );
 
     // file sortedSinglea.cpp
     sortedSingle( );
+    sortedSingle(sortedSingle& l);
     ~sortedSingle( );
     bool find( int item );
     int retrievePosition( int item );

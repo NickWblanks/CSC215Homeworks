@@ -110,6 +110,15 @@ TEST_CASE("Insert - empty list")
     CHECK(list.insert(99) == true);
 }
 
+TEST_CASE("Insert - duplicate at front")
+{
+    sortedSingle list;
+    list.insert(99);
+    list.insert(90);
+    CHECK(list.insert(90) == true);
+    list.print(cout, ", ");
+}
+
 TEST_CASE("Insert - at front")
 {
     sortedSingle list;
@@ -257,8 +266,12 @@ TEST_CASE("Clear - list with many items")
     CHECK(list.empty() == true);
 }
 
-
-
+TEST_CASE("copyConstructor - empty list") //should make a copy list that is empty
+{
+    sortedSingle list1;
+    sortedSingle cList(list1);
+    CHECK(cList.empty() == true);
+}
 
 
 

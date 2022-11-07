@@ -6,7 +6,7 @@ bool sortedSingle::insert(int item)
     temp->theItem = item;
     node* prev = headptr;
     node* curr = headptr;
-    if (empty())
+    if (empty()== true)
     {
         temp->next = nullptr;
         headptr = temp;
