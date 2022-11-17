@@ -57,7 +57,6 @@ bool readFile(ifstream& fin, rune& runeStore, rune *runeArr, int &n)
     {
         n++;
     }
-    cout << n << endl;
     fin.clear();
     fin.seekg(0, ios::beg);
     getline(fin, toss2);
